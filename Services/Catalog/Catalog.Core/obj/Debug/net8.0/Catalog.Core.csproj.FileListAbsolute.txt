@@ -1,0 +1,12 @@
+/Users/apple/Desktop/dotnet/microservices/Ecommerce/Services/Catalog/Catalog.Core/bin/Debug/net8.0/Catalog.Core.deps.json
+/Users/apple/Desktop/dotnet/microservices/Ecommerce/Services/Catalog/Catalog.Core/bin/Debug/net8.0/Catalog.Core.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce/Services/Catalog/Catalog.Core/bin/Debug/net8.0/Catalog.Core.pdb
+/Users/apple/Desktop/dotnet/microservices/Ecommerce/Services/Catalog/Catalog.Core/obj/Debug/net8.0/Catalog.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/apple/Desktop/dotnet/microservices/Ecommerce/Services/Catalog/Catalog.Core/obj/Debug/net8.0/Catalog.Core.AssemblyInfoInputs.cache
+/Users/apple/Desktop/dotnet/microservices/Ecommerce/Services/Catalog/Catalog.Core/obj/Debug/net8.0/Catalog.Core.AssemblyInfo.cs
+/Users/apple/Desktop/dotnet/microservices/Ecommerce/Services/Catalog/Catalog.Core/obj/Debug/net8.0/Catalog.Core.csproj.CoreCompileInputs.cache
+/Users/apple/Desktop/dotnet/microservices/Ecommerce/Services/Catalog/Catalog.Core/obj/Debug/net8.0/Catalog.Core.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce/Services/Catalog/Catalog.Core/obj/Debug/net8.0/refint/Catalog.Core.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce/Services/Catalog/Catalog.Core/obj/Debug/net8.0/Catalog.Core.pdb
+/Users/apple/Desktop/dotnet/microservices/Ecommerce/Services/Catalog/Catalog.Core/obj/Debug/net8.0/ref/Catalog.Core.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce/Services/Catalog/Catalog.Core/obj/Debug/net8.0/Catalog.Core.csproj.AssemblyReference.cache
