@@ -19,7 +19,7 @@ public class CatalogController : ApiController
     [ProducesResponseType(typeof(ProductResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> GetProductbyId(string id)  
+    public async Task<ActionResult<ProductResponse>> GetProductbyId(string id)  
     {
         var result = await _sender.Send(new GetProductByIdQuery(id));
         return Ok(result);
@@ -30,7 +30,7 @@ public class CatalogController : ApiController
     [ProducesResponseType(typeof(IList<ProductResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> GetProductByProductName(string productName)  
+    public async Task<ActionResult<IList<ProductResponse>>> GetProductByProductName(string productName)  
     {
         var result = await _sender.Send(new GetProductsByNameQuery(productName));
         return Ok(result);
@@ -42,7 +42,7 @@ public class CatalogController : ApiController
     [ProducesResponseType(typeof(IList<ProductResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> GetProductByBrandName(string brandName)  
+    public async Task<ActionResult<IList<ProductResponse>>> GetProductByBrandName(string brandName)  
     {
         var result = await _sender.Send(new GetProductsByBrandQuery(brandName));
         return Ok(result);
@@ -51,7 +51,7 @@ public class CatalogController : ApiController
     [HttpGet]
     [Route("GetAllProducts")]
     [ProducesResponseType(typeof(IList<ProductResponse>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetAllProducts()  
+    public async Task<ActionResult<IList<ProductResponse>>> GetAllProducts()  
     {
         var result = await _sender.Send(new GetAllProductQuery());
         return Ok(result);
@@ -61,7 +61,7 @@ public class CatalogController : ApiController
     [HttpGet]
     [Route("GetAllBrands")]
     [ProducesResponseType(typeof(IList<BrandResponse>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetAllBrands()  
+    public async Task<ActionResult<IList<BrandResponse>>> GetAllBrands()  
     {
         var result = await _sender.Send(new GetAllBrandsQuery());
         return Ok(result);
@@ -69,8 +69,8 @@ public class CatalogController : ApiController
 
     [HttpGet]
     [Route("GetAllTypes")]
-    [ProducesResponseType(typeof(IList<BrandResponse>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetAllTypes()  
+    [ProducesResponseType(typeof(IList<ProductTypeResponse>), StatusCodes.Status200OK)]
+    public async Task<ActionResult<IList<ProductTypeResponse>>> GetAllTypes()  
     {
         var result = await _sender.Send(new GetAllProductTypesQuery());
         return Ok(result);
@@ -79,7 +79,7 @@ public class CatalogController : ApiController
     [HttpPost]
     [Route("CreateProduct")]
     [ProducesResponseType(typeof(ProductResponse), StatusCodes.Status201Created)]
-    public async Task<IActionResult> AddProduct([FromBody] CreateProductCommand productRequest)  
+    public async Task<ActionResult<ProductResponse>> AddProduct([FromBody] CreateProductCommand productRequest)  
     {
         var result = await _sender.Send(productRequest);
         return CreatedAtAction(nameof(GetProductbyId), new { id = result.Id }, result);
@@ -88,7 +88,7 @@ public class CatalogController : ApiController
     [HttpPut]
     [Route("UpdateProduct")]
     [ProducesResponseType(typeof(bool), StatusCodes.Status202Accepted)]
-    public async Task<IActionResult> UpdateProduct([FromBody] UpdateProductCommand productRequest)  
+    public async Task<ActionResult<bool>> UpdateProduct([FromBody] UpdateProductCommand productRequest)  
     {
         var result = await _sender.Send(productRequest);
         return Accepted(result);
@@ -97,7 +97,7 @@ public class CatalogController : ApiController
     [HttpDelete]
     [Route("DeleteProduct/{id:string}", Name = "DeleteProduct")]
     [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
-    public async Task<IActionResult> DeleteProduct(string id)  
+    public async Task<ActionResult<bool>> DeleteProduct(string id)  
     {
         var result = await _sender.Send(new DeleteProductCommand(id));
         return Ok(result);
