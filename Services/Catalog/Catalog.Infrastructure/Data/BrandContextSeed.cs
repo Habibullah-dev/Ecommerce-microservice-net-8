@@ -20,7 +20,7 @@ public static class BrandContextSeed
         // Only seed if no brands exist
         if(!checkBrands) {
             // Get path to seed data JSON file
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "brands.json");
+            string path = Path.Combine(Directory.GetCurrentDirectory(),"../Catalog.Infrastructure","Data", "SeedData", "brands.json");
             
             // Read JSON file contents
             string brandData = File.ReadAllText(path);

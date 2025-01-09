@@ -20,7 +20,7 @@ public static class TypeContextSeed
         if(!checkTypes)
         {
             // Get path to seed data JSON file
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "types.json");
+            string path = Path.Combine(Directory.GetCurrentDirectory(),"../Catalog.Infrastructure","Data", "SeedData", "types.json");
             
             // Read JSON file contents
             string typeData = File.ReadAllText(path);

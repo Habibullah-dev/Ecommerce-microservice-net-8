@@ -1,6 +1,6 @@
 namespace Catalog.Application.Responses;
-public record BrandResponse
+public class BrandResponse
 {
-    public int Id { get; init; }
-    public string Name { get; init; } = string.Empty;
+    public string Id { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
 }

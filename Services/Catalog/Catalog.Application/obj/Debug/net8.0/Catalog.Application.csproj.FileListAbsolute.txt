@@ -13,3 +13,19 @@
 /Users/apple/Desktop/dotnet/microservices/Ecommerce/Services/Catalog/Catalog.Application/obj/Debug/net8.0/refint/Catalog.Application.dll
 /Users/apple/Desktop/dotnet/microservices/Ecommerce/Services/Catalog/Catalog.Application/obj/Debug/net8.0/Catalog.Application.pdb
 /Users/apple/Desktop/dotnet/microservices/Ecommerce/Services/Catalog/Catalog.Application/obj/Debug/net8.0/ref/Catalog.Application.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/bin/Debug/net8.0/Catalog.Application.deps.json
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/bin/Debug/net8.0/Catalog.Application.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/bin/Debug/net8.0/Catalog.Application.pdb
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/bin/Debug/net8.0/Catalog.Core.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/bin/Debug/net8.0/Catalog.Core.pdb
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/obj/Debug/net8.0/Catalog.Application.csproj.AssemblyReference.cache
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/obj/Debug/net8.0/Catalog.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/obj/Debug/net8.0/Catalog.Application.AssemblyInfoInputs.cache
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/obj/Debug/net8.0/Catalog.Application.AssemblyInfo.cs
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/obj/Debug/net8.0/Catalog.Application.csproj.CoreCompileInputs.cache
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/obj/Debug/net8.0/Catalog.Application.sourcelink.json
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/obj/Debug/net8.0/Catalog..75771DFE.Up2Date
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/obj/Debug/net8.0/Catalog.Application.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/obj/Debug/net8.0/refint/Catalog.Application.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/obj/Debug/net8.0/Catalog.Application.pdb
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.Application/obj/Debug/net8.0/ref/Catalog.Application.dll

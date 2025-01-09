@@ -20,7 +20,7 @@ public static class CatalogContextSeed
         if(!checkProducts)
         {
             // Get path to seed data JSON file
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "products.json");
+            string path = Path.Combine(Directory.GetCurrentDirectory(),"../Catalog.Infrastructure","Data", "SeedData", "products.json");
             
             // Read JSON file contents
             string productData = File.ReadAllText(path);
