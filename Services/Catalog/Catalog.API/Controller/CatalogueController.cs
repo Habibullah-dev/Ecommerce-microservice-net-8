@@ -15,7 +15,7 @@ public class CatalogController : ApiController
     }
 
     [HttpGet]
-    [Route("[action]/{id:string}",Name = "GetProductById")]
+    [Route("[action]/{id}",Name = "GetProductById")]
     [ProducesResponseType(typeof(ProductResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -26,7 +26,7 @@ public class CatalogController : ApiController
     }
 
     [HttpGet]
-    [Route("[action]/{productName:string}",Name = "GetProductByProductName")]
+    [Route("[action]/{productName}",Name = "GetProductByProductName")]
     [ProducesResponseType(typeof(IList<ProductResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -38,7 +38,7 @@ public class CatalogController : ApiController
 
 
     [HttpGet]
-    [Route("[action]/{brandName:string}",Name = "GetProductByBrandName")]
+    [Route("[action]/{brandName}",Name = "GetProductByBrandName")]
     [ProducesResponseType(typeof(IList<ProductResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -95,7 +95,7 @@ public class CatalogController : ApiController
     }
 
     [HttpDelete]
-    [Route("DeleteProduct/{id:string}", Name = "DeleteProduct")]
+    [Route("DeleteProduct/{id}", Name = "DeleteProduct")]
     [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
     public async Task<ActionResult<bool>> DeleteProduct(string id)  
     {
