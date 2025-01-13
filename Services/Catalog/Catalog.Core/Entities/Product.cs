@@ -9,8 +9,8 @@ public class Product : BaseEntity
    public string Summary { get; set; } = string.Empty;
    public string Description { get; set; } = string.Empty;
    public string ImageFile {get;set;} = string.Empty;
-   public ProductBrand Brand {get;set; } = null!;
-   public ProductType Type {get;set;} = null!;
+   public ProductBrand Brands {get;set; } = null!;
+   public ProductType Types {get;set;} = null!;
    [BsonRepresentation(MongoDB.Bson.BsonType.Decimal128)]
    public decimal Price {get;set;}
 }

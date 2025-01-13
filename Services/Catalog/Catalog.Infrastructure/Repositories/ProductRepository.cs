@@ -87,7 +87,7 @@ public class ProductRepository : IProductRepository, IBrandRepository, ITypeRepo
     /// <returns>Collection of products matching the brand name</returns>
     async Task<IEnumerable<Product>> IProductRepository.GetProductsByBrand(string brandName)
     {
-        return await _catalogContext.Products.Find(p => p.Brand.Name.ToLower() == brandName.ToLower()).ToListAsync();
+        return await _catalogContext.Products.Find(p => p.Brands.Name.ToLower() == brandName.ToLower()).ToListAsync();
     }
 
     /// <summary>

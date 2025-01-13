@@ -20,6 +20,7 @@ public class CatalogContext : ICatalogContext
         BrandContextSeed.SeedData(Brands);
         TypeContextSeed.SeedData(Types);
         CatalogContextSeed.SeedData(Products);
+
     }
 
 

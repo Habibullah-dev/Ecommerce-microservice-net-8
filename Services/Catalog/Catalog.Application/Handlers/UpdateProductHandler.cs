@@ -29,8 +29,8 @@ public class UpdateProductHandler : IRequestHandler<UpdateProductCommand, bool>
             Description = string.IsNullOrWhiteSpace(request.Description) ? product.Description : request.Description,
             Price = (decimal) (request.Price == null ? product.Price : request.Price),
             ImageFile = string.IsNullOrWhiteSpace(request.ImageFile) ? product.ImageFile : request.ImageFile,
-            Brand = request.Brand is null  ? product.Brand : request.Brand,
-            Type = request.Type is null ? product.Type : request.Type
+            Brands = request.Brand is null  ? product.Brands : request.Brand,
+            Types = request.Type is null ? product.Types : request.Type
             
         };
         return await _productRepository.UpdateProduct(updatedProduct);
