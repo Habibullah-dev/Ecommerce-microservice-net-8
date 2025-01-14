@@ -18,7 +18,7 @@ services:
     depends_on:
       - catalogdb
     ports:
-      - 5292:80
+      - 5292:8080
 
   catalogdb:
     container_name: catalogdb

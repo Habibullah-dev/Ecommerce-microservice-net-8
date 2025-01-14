@@ -10,7 +10,7 @@ namespace Catalog.API.Controller;
 
 public class CatalogController : ApiController
 {
-    public CatalogController(ISender sender) : base(sender)
+    public CatalogController(IMediator sender) : base(sender)
     {
     }
 

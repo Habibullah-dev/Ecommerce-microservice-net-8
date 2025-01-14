@@ -10,8 +10,8 @@ namespace Catalog.API.Controller;
 [ApiController]
 public class ApiController : ControllerBase 
 {
-    protected readonly ISender _sender;
+    protected readonly IMediator _sender;
 
-    public ApiController(ISender sender) => _sender = sender;
+    public ApiController(IMediator sender) => _sender = sender;
 
 }

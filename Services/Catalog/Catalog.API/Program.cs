@@ -1,8 +1,8 @@
 using System.Reflection;
 using Asp.Versioning;
-using Catalog.Application.Handlers;
 using Catalog.Core.Repositories.Interfaces;
 using Catalog.Infrastructure.Data;
+using Catalog.Application.Handlers;
 using Catalog.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,11 +26,19 @@ builder.Services.AddSwaggerGen(c =>  {
     });
 });
 
-// Register AutoMapper
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-var assemblies = new[] { Assembly.GetExecutingAssembly(), typeof(GetAllBrandsHandler).Assembly };
+//Register AutoMapper
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
+
+var path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+var applicationAssembly = Directory.GetFiles(path, "Application.dll").Select(AssemblyLoadContext.Default.LoadFromAssemblyPath).FirstOrDefault();
+
 //Register MediatR
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies));
+builder.Services.AddMediatR(cfg => {
+    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
+  //  cfg.RegisterServicesFromAssembly(typeof(GetAllBrandsHandler).Assembly);
+    cfg..RegisterServicesFromAssembly(applicationAssembly);
+});
 
 //Register Application Service
 builder.Services.AddScoped<ICatalogContext, CatalogContext>();
@@ -43,13 +51,9 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseHttpsRedirection();
-app.UseAuthentication();
 
 app.UseAuthorization();
 
