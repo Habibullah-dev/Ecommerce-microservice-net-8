@@ -4,6 +4,7 @@ using Catalog.Core.Repositories.Interfaces;
 using Catalog.Infrastructure.Data;
 using Catalog.Application.Handlers;
 using Catalog.Infrastructure.Repositories;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,17 +29,13 @@ builder.Services.AddSwaggerGen(c =>  {
 
 //Register AutoMapper
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
-
-
-var path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-var applicationAssembly = Directory.GetFiles(path, "Application.dll").Select(AssemblyLoadContext.Default.LoadFromAssemblyPath).FirstOrDefault();
-
-//Register MediatR
-builder.Services.AddMediatR(cfg => {
-    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
-  //  cfg.RegisterServicesFromAssembly(typeof(GetAllBrandsHandler).Assembly);
-    cfg..RegisterServicesFromAssembly(applicationAssembly);
-});
+//Register Mediatr
+var assemblies = new Assembly[]
+{
+    Assembly.GetExecutingAssembly(),
+    typeof(GetAllBrandsHandler).Assembly 
+};
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies));
 
 //Register Application Service
 builder.Services.AddScoped<ICatalogContext, CatalogContext>();
@@ -48,6 +45,12 @@ builder.Services.AddScoped<ITypeRepository, ProductRepository>();
 
 var app = builder.Build();
 
+var serviceProvider = app.Services.CreateScope().ServiceProvider;
+foreach (var service in serviceProvider.GetServices<GetAllBrandsHandler>())
+{
+    Console.WriteLine(service.GetType().FullName);
+}
+ Console.WriteLine("Hiiiiii");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
