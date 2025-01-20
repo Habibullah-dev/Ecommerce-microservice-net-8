@@ -1,5 +1,6 @@
 using Catalog.Core.Entities;
 using Catalog.Core.Repositories.Interfaces;
+using Catalog.Core.Specs;
 using Catalog.Infrastructure.Data;
 using MongoDB.Driver;
 
@@ -21,11 +22,64 @@ public class ProductRepository : IProductRepository, IBrandRepository, ITypeRepo
         _catalogContext = catalogContext;
     }
 
-    /// <summary>
-    /// Creates a new product in the database
-    /// </summary>
-    /// <param name="product">Product entity to create</param>
-    /// <returns>The created product</returns>
+    public async Task<Pagination<Product>> GetAllProducts(CatalogueSpecParam specs)
+    {
+        var builder = Builders<Product>.Filter;
+        var filter = builder.Empty;
+        if(!string.IsNullOrWhiteSpace(specs.Search))
+        {
+            filter = filter & builder.Where(p => p.Name.ToLower().Contains(specs.Search.ToLower()));
+        }
+        if(!string.IsNullOrWhiteSpace(specs.BrandId))
+        {
+            var brandFilter = builder.Eq(p => p.Brands.Id , specs.BrandId);
+            filter &= brandFilter;
+        }
+        if(!string.IsNullOrWhiteSpace(specs.TypeId))
+        {
+            var typeFilter = builder.Eq(p => p.Types.Id , specs.TypeId);
+            filter &= typeFilter;
+        }
+        var totalItemsCount = await _catalogContext.Products.CountDocumentsAsync(filter);
+
+        var products = await ProductSortandFilter(specs, filter);
+
+        return new Pagination<Product>(specs.PageIndex, specs.PageSize, (int) totalItemsCount, products);
+    }
+
+    private async Task<IReadOnlyList<Product>> ProductSortandFilter(CatalogueSpecParam specs, FilterDefinition<Product> filter)
+    {
+        var productSort = Builders<Product>.Sort.Ascending("Name");
+
+        if(!string.IsNullOrWhiteSpace(specs.Sort))
+        {
+            switch(specs.Sort)
+            {
+                case "priceAsc":
+                    productSort = Builders<Product>.Sort.Ascending(x => x.Price);
+                    break;
+                case "priceDesc":
+                    productSort = Builders<Product>.Sort.Descending(x => x.Price);
+                    break;
+                case "nameAsc":
+                    productSort = Builders<Product>.Sort.Ascending(x => x.Name);
+                    break;
+                case "nameDesc":
+                    productSort = Builders<Product>.Sort.Descending(x => x.Name);
+                    break;
+                default:
+                    productSort = Builders<Product>.Sort.Ascending(x => x.Name);
+                    break;
+            }
+        }
+        return await _catalogContext.Products
+            .Find(filter)
+            .Sort(productSort)
+            .Skip(specs.PageSize * (specs.PageIndex - 1))
+            .Limit(specs.PageSize)
+            .ToListAsync();
+    }
+
     async Task<Product> IProductRepository.CreateProduct(Product product)
     {
        await _catalogContext.Products.InsertOneAsync(product);
@@ -50,15 +104,6 @@ public class ProductRepository : IProductRepository, IBrandRepository, ITypeRepo
     async Task<IEnumerable<ProductBrand>> IBrandRepository.GetAllBrands()
     {
         return await _catalogContext.Brands.Find(p => true).ToListAsync();
-    }
-
-    /// <summary>
-    /// Retrieves all products from the database
-    /// </summary>
-    /// <returns>Collection of all products</returns>
-    async Task<IEnumerable<Product>> IProductRepository.GetAllProducts()
-    {
-       return  await _catalogContext.Products.Find(p => true).ToListAsync();
     }
 
     /// <summary>
