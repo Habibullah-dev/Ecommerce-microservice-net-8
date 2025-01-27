@@ -4,7 +4,6 @@ using Catalog.Core.Repositories.Interfaces;
 using Catalog.Infrastructure.Data;
 using Catalog.Application.Handlers;
 using Catalog.Infrastructure.Repositories;
-using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
