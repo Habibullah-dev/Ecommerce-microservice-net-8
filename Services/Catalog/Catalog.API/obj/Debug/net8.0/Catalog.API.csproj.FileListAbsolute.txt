@@ -103,3 +103,12 @@
 /Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.API/obj/Debug/net8.0/Catalog.API.pdb
 /Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.API/obj/Debug/net8.0/Catalog.API.genruntimeconfig.cache
 /Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.API/obj/Debug/net8.0/ref/Catalog.API.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.API/bin/Debug/net8.0/HealthChecks.UI.Client.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.API/bin/Debug/net8.0/HealthChecks.UI.Core.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.API/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.API/bin/Debug/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.API/bin/Debug/net8.0/Microsoft.Extensions.Diagnostics.HealthChecks.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.API/bin/Debug/net8.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.API/bin/Debug/net8.0/Microsoft.Extensions.Hosting.Abstractions.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.API/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/apple/Desktop/dotnet/microservices/Ecommerce NET-8/Services/Catalog/Catalog.API/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
