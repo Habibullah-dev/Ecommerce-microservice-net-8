@@ -19,14 +19,14 @@ public class BasketController : ApiController
         var basket = await _sender.Send(new GetBasketByUsernameQuery(username));
         return basket is null ? NotFound() : Ok(basket);
     }
-    [HttpPost("CreateBasket")]
-    [ProducesResponseType(typeof(ShoppingCartResponse), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ShoppingCartResponse>> UpdateBasket([FromBody] CreateShoppingCartCommand basket)
-    {
-        var updatedBasket = await _sender.Send(new UpdateBasketCommand(basket));
-        return updatedBasket is null ? NotFound() : Ok(updatedBasket);
-    }
+    // [HttpPost("CreateBasket")]
+    // [ProducesResponseType(typeof(ShoppingCartResponse), StatusCodes.Status200OK)]
+    // [ProducesResponseType(StatusCodes.Status404NotFound)]
+    // public async Task<ActionResult<ShoppingCartResponse>> UpdateBasket([FromBody] CreateShoppingCartCommand basket)
+    // {
+    //     var updatedBasket = await _sender.Send(new UpdateBasketCommand(basket));
+    //     return updatedBasket is null ? NotFound() : Ok(updatedBasket);
+    // }
 
 
 }
